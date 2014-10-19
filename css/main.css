@@ -105,7 +105,7 @@ section#veil.disolve {
     left: 0;
     right: 0;
     display: none;
-    background-color: rgba(252, 252, 254, 0.66);
+    background-color: rgba(252, 252, 254, 0.80);
     color: rgb(53, 69, 78);
     z-index: 2000;
 }
@@ -167,8 +167,41 @@ section#landing .logo-big {
     line-height: 72px; /* just for the example, TODO remove later */
 }
 
+section.page-block {
+    padding: 80px 10%;
+}
+
+.block-content-right {
+    width: 66%;
+    margin-left: 34%;
+}
+.block-content-left {
+    width: 66%;
+    margin-right: 34%;
+}
+
+.svg-aside {
+    width: 34%;
+    position: absolute;
+    top: 80;
+    text-align: center;
+}
+
+.svg-aside-left {
+    left: 0;
+}
+
+.svg-aside-right {
+    right: 0;
+}
+
 section.page-block#gallery {
-    background-color: #A3A7C7;;
+    background-color: #A3A7C7;
+}
+
+section.page-block#gallery h2 {
+    margin: 0 0 0 20px;
+    text-align: center;
 }
 
 section.page-block#about {
@@ -180,6 +213,7 @@ section.page-block#about {
 
 section.page-block#contact {
     background-color: #171D4D;
+    color: #f1f1f1;
 }
 
 /* ==========================================================================
