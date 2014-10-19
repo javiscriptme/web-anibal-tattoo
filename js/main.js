@@ -15,7 +15,7 @@ var app = {
 		this.registerElements();
 		this.initialCalculations();
 		this.initialLoad();
-//		this.registerAnimatedBlocks();
+		this.registerAnimatedBlocks();
 	},
 
 	initialCalculations: function () {
@@ -41,6 +41,7 @@ var app = {
 
 		// Setting '.page-block' position as relative so veil fading effect works properly
 		this.els.$main.find('.page-block').css('position', 'relative');
+		that.setBlockTops();
 		this.els.$veil.toggleClass('hide', true);
 
 		this.scrollLock = true;
@@ -62,17 +63,28 @@ var app = {
 		this.els.$main.find('section#landing').css('height', this.windowHeight + 'px');
 	},
 
+	setBlockTops: function () {
+		this.startOffset = this.windowHeight / 2;
+
+		for ( var i = 0 ; i < 3 ; i++ ) {
+
+			var blockTop = $('.page-block-' + i).position().top;
+
+			this.blocks[i].start = blockTop - this.startOffset;
+			this.blocks[i].end   = (blockTop * 1.5) - this.startOffset;
+		}
+	},
+
 	registerAnimatedBlocks: function () {
 		var that = this;
 
 		this.blocks = [];
-		this.startOffset = 60;
 
-		for ( var i = 0 ; i < 6 ; i++ ) {
+		for ( var i = 0 ; i < 3 ; i++ ) {
 
 			this.blocks[i] = {
-				start: this.windowHeight * i - this.startOffset,
-				end: this.windowHeight * i + this.windowHeight / 2 - this.startOffset,
+				start: null,
+				end: null,
 				lines: []
 			};
 
@@ -96,11 +108,9 @@ var app = {
 
 		this.els.$header.toggleClass('shown', scrollTop > 300 );
 
-		return;
-		for ( var i = 0 ; i < 6 ; i++ ) {
+		for ( var i = 0 ; i < 3 ; i++ ) {
 			if ( scrollTop >= this.blocks[i].start && scrollTop <= (this.blocks[i].end + 200) ) {
 				var perc = (scrollTop - this.blocks[i].start) / (this.blocks[i].end - this.blocks[i].start) * 100;
-				console.log('%c limit: %o - %o', "color: white; background: lime;", i, this.blocks[i].end - scrollTop );
 				if ( perc < 0 ) { perc = 0; } else if ( perc > 100 ) { perc = 100; }
 				this.animateBlockSvgLines(this.blocks[i].lines, perc);
 			}
