@@ -82,13 +82,34 @@ body {
    Author's custom styles
    ========================================================================== */
 
+section#veil {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #070D3D;
+    opacity: 1;
+}
+section#veil.disolve {
+    opacity: 0;
+    -webkit-transition: opacity 1200ms ease-in-out;
+    -moz-transition: opacity 1200ms ease-in-out;
+    transition: opacity 1200ms ease-in-out; /* time must match with js timeout for section#veil */
+}
+
 .header-container {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    display: none;
     background-color: rgba(53, 69, 78, .95);
     color: #c0c1ce;
+    z-index: 2000;
+}
+.header-container.shown {
+    display: block;
 }
 .header-container a {
     color: #c0c1ce;
@@ -109,7 +130,12 @@ body {
 }
 
 .header-container nav ul {
+    margin: 0;
     padding: 0;
+}
+
+section#main {
+    z-index: 1000;
 }
 
 section.page-block {
@@ -143,7 +169,7 @@ section.page-block#contact {
    ==================== */
 
     .header-container nav {
-        display: block;
+        /* display: block; */
     }
 
 /* ========================

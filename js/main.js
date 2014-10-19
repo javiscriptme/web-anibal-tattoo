@@ -6,15 +6,16 @@ var app = {
 	},
 
 	registerElements: function () {
-		this.els.$veil = $('section#veil');
-		this.els.$main = $('section#main');
+		this.els.$veil   = $('section#veil');
+		this.els.$main   = $('section#main');
+		this.els.$header = $('.header-container');
 	},
 
 	init: function () {
 		this.registerElements();
 		this.initialCalculations();
 		this.initialLoad();
-		this.registerAnimatedBlocks();
+//		this.registerAnimatedBlocks();
 	},
 
 	initialCalculations: function () {
@@ -57,11 +58,8 @@ var app = {
 	},
 
 	setBlockHeight: function () {
-		var that = this;
 		// windows height must be available, check initialCalculations function
-		this.els.$main.find('.page-block').each(function () {
-			$(this).css('height', that.windowHeight + 'px');
-		});
+		this.els.$main.find('.page-block').eq(0).css('height', this.windowHeight + 'px');
 	},
 
 	registerAnimatedBlocks: function () {
@@ -95,6 +93,10 @@ var app = {
 
 	appScroll: function () {
 		var scrollTop = $(window).scrollTop();
+
+		this.els.$header.toggleClass('shown', scrollTop > 300 );
+
+		return;
 		for ( var i = 0 ; i < 6 ; i++ ) {
 			if ( scrollTop >= this.blocks[i].start && scrollTop <= (this.blocks[i].end + 200) ) {
 				var perc = (scrollTop - this.blocks[i].start) / (this.blocks[i].end - this.blocks[i].start) * 100;
@@ -118,4 +120,4 @@ var app = {
 
 }
 
-//app.init();
+app.init();
