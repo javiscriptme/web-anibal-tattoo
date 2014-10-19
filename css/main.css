@@ -90,6 +90,7 @@ section#veil {
     right: 0;
     background: #070D3D;
     opacity: 1;
+    z-index: 10000;
 }
 section#veil.disolve {
     opacity: 0;
@@ -104,19 +105,19 @@ section#veil.disolve {
     left: 0;
     right: 0;
     display: none;
-    background-color: rgba(53, 69, 78, .95);
-    color: #c0c1ce;
+    background-color: rgba(252, 252, 254, 0.66);
+    color: rgb(53, 69, 78);
     z-index: 2000;
 }
 .header-container.shown {
     display: block;
 }
 .header-container a {
-    color: #c0c1ce;
+    color: rgb(53, 69, 78);
     text-decoration: none;
 }
 .header-container a:hover {
-    color: #eaeaef;
+    color: rgb(53, 69, 78);
 }
 
 .header-container .title {
@@ -138,12 +139,32 @@ section#main {
     z-index: 1000;
 }
 
+section#landing,
 section.page-block {
+    /* position is set to relative in main.js */
     min-height: 400px;
 }
 
-section.page-block#landing {
-    background-color: #35454e;
+section#landing {
+    background: url('../img/bgs/landing-bg.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+
+}
+
+section#landing .logo-big {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 50%;
+    height: 40%;
+    margin: auto;
+    text-align: center;
+    font-size: 72px; /* just for the example, TODO remove later */
+    line-height: 72px; /* just for the example, TODO remove later */
 }
 
 section.page-block#gallery {
@@ -151,7 +172,10 @@ section.page-block#gallery {
 }
 
 section.page-block#about {
-    background-color: #35454e;
+    background: url('../img/bgs/landing-bg.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 section.page-block#contact {
@@ -169,7 +193,7 @@ section.page-block#contact {
    ==================== */
 
     .header-container nav {
-        /* display: block; */
+        display: block;
     }
 
 /* ========================

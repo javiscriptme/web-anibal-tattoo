@@ -59,7 +59,7 @@ var app = {
 
 	setBlockHeight: function () {
 		// windows height must be available, check initialCalculations function
-		this.els.$main.find('.page-block').eq(0).css('height', this.windowHeight + 'px');
+		this.els.$main.find('section#landing').css('height', this.windowHeight + 'px');
 	},
 
 	registerAnimatedBlocks: function () {
