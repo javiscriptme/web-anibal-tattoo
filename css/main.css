@@ -243,6 +243,33 @@ div.footer-container h3 {
 
 
 /* ==========================================================================
+   Gallery (s)
+   ========================================================================== */
+
+.thumb {
+    width: 90%;
+    margin: 0 5%;
+}
+
+.thumb.shown-l {
+    display: none;
+}
+
+.thumb.shown-m {
+    display: none;
+}
+
+.thumb.shown-s {
+    display: block;
+}
+
+.gallery-grid.show-all .thumb.shown-l,
+.gallery-grid.show-all .thumb.shown-m,
+.gallery-grid.show-all .thumb.shown-s {
+    display: block !important;
+}
+
+/* ==========================================================================
    Media Queries
    ========================================================================== */
 
@@ -267,28 +294,24 @@ div.footer-container h3 {
     .oldie nav a {
         margin: 0 0.7%;
     }
-}
 
-@media only screen and (min-width: 768px) {
+/* ==========================================================================
+   Gallery (m)
+   ========================================================================== */
 
-/* ====================
-    WIDE: CSS3 Effects
-   ==================== */
+    .thumb {
+        float: left;
+        width: 45%;
+        margin: 0 2.5%;
+    }
 
-
-/* ============
-    WIDE: Menu
-   ============ */
-
-
-/* ============
-    WIDE: Main
-   ============ */
-
+    .thumb.shown-m {
+        display: block
+    }
 
 }
 
-@media only screen and (min-width: 1140px) {
+@media only screen and (min-width: 1024px) {
 
 /* ===============
     Maximal Width
@@ -297,6 +320,20 @@ div.footer-container h3 {
     .wrapper {
         width: 1026px; /* 1140px - 10% for margins */
         margin: 0 auto;
+    }
+
+    /* ==========================================================================
+   Gallery (l)
+   ========================================================================== */
+
+    .thumb {
+        float: left;
+        width: 22%;
+        margin: 0 1.5%;
+    }
+
+    .thumb.shown-l {
+        display: block;
     }
 }
 
