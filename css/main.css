@@ -1,5 +1,7 @@
 /*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
 
+@import url('http://fonts.googleapis.com/css?family=Lato:300,700');
+
 html,
 button,
 input,
@@ -62,7 +64,12 @@ textarea {
    ========================================================================== */
 
 body {
-    font: 16px/26px Helvetica, Helvetica Neue, Arial;
+    font: 16px/26px 'Lato', sans-serif;
+    font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
 }
 
 .wrapper {
@@ -115,18 +122,26 @@ section#veil.disolve {
 .header-container a {
     color: rgb(53, 69, 78);
     text-decoration: none;
+    font-size: 16px;
+    line-height: 50px;
+    padding: 0 24px;
 }
 .header-container a:hover {
     color: rgb(53, 69, 78);
 }
 
 .header-container .title {
+    margin: 0 0 0 32px;
+    line-height: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
 .header-container nav {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 32px;
     display: none;
 }
 
@@ -205,10 +220,7 @@ section.page-block#gallery h2 {
 }
 
 section.page-block#about {
-    background: url('../img/bgs/landing-bg.png');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+    background-color: #444444;
 }
 
 section.page-block#contact {

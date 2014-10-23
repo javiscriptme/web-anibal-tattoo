@@ -49,6 +49,8 @@ var app = {
 			that.scrollLock = false;
 		});
 
+		this.els.$veil.remove();
+
 		window.setInterval(function () {
 			if ( ! that.scrollLock ) {
 				that.scrollLock = true;
