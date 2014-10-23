@@ -95,7 +95,7 @@ section#veil {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #070D3D;
+    background: #393939;
     opacity: 1;
     z-index: 10000;
 }
@@ -211,7 +211,7 @@ section.page-block {
 }
 
 section.page-block#gallery {
-    background-color: #A3A7C7;
+    background-color: #f1f1f1;
 }
 
 section.page-block#gallery h2 {
@@ -220,13 +220,27 @@ section.page-block#gallery h2 {
 }
 
 section.page-block#about {
-    background-color: #444444;
+    background-color: #393939;
+    color: #f1f1f1;
 }
 
 section.page-block#contact {
-    background-color: #171D4D;
-    color: #f1f1f1;
+    background-color: #f1f1f1;
+    color: #393939;
 }
+
+div.footer-container {
+    background-color: #393939;
+}
+
+
+
+div.footer-container h3 {
+    margin: 0;
+    color: #f1f1f1;
+     line-height: 50px;
+}
+
 
 /* ==========================================================================
    Media Queries
