@@ -251,22 +251,31 @@ div.footer-container h3 {
     margin: 0 5%;
 }
 
-.thumb.shown-l {
+.shown-l {
     display: none;
 }
 
-.thumb.shown-m {
+.shown-m {
     display: none;
 }
 
-.thumb.shown-s {
+.shown-s {
     display: block;
 }
 
-.gallery-grid.show-all .thumb.shown-l,
-.gallery-grid.show-all .thumb.shown-m,
-.gallery-grid.show-all .thumb.shown-s {
+.hidden-l {
+    display: block;
+}
+
+.gallery-grid.show-all .shown-l,
+.gallery-grid.show-all .shown-m,
+.gallery-grid.show-all .shown-s {
     display: block !important;
+}
+
+.gallery-more {
+    width: 50%;
+    margin: 0 auto;
 }
 
 /* ==========================================================================
@@ -305,7 +314,7 @@ div.footer-container h3 {
         margin: 0 2.5%;
     }
 
-    .thumb.shown-m {
+    .shown-m {
         display: block
     }
 
@@ -332,8 +341,12 @@ div.footer-container h3 {
         margin: 0 1.5%;
     }
 
-    .thumb.shown-l {
+    .shown-l {
         display: block;
+    }
+
+    .hidden-l {
+        display: none;
     }
 }
 

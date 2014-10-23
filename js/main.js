@@ -9,6 +9,11 @@ var app = {
 		this.els.$veil   = $('section#veil');
 		this.els.$main   = $('section#main');
 		this.els.$header = $('.header-container');
+
+		this.els.$galleryGrid = this.els.$main.find('.gallery-grid');
+		this.els.$galleryBtn  = this.els.$main.find('.gallery-more');
+
+		this.els.$galleryBtn.on('click', $.proxy(this.unfoldGalleryGrid, this));
 	},
 
 	init: function () {
@@ -128,6 +133,11 @@ var app = {
 				.ease("linear")
 				.attr('stroke-dashoffset', len - (len * perc / 100));
 		}
+	},
+
+	unfoldGalleryGrid: function () {
+		this.els.$galleryGrid.toggleClass('show-all', true);
+		this.els.$galleryBtn.css({ 'display': 'none' });
 	}
 
 }
