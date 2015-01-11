@@ -1,18 +1,23 @@
 var app = {
 
-	els: {
-		$veil: null,
-		$main: null
-	},
+	els: {},
 
 	registerElements: function () {
 		this.els.$veil   = $('section#veil');
 		this.els.$main   = $('section#main');
 		this.els.$header = $('.header-container');
 
-		this.els.$galleryGrid = this.els.$main.find('.gallery-grid');
-		this.els.$galleryBtn  = this.els.$main.find('.gallery-more');
+		// Sections
+		this.els.$landing = this.els.$main.find('section#landing');
+		this.els.$gallery = this.els.$main.find('section#gallery');
+		this.els.$about   = this.els.$main.find('section#about');
+		this.els.$contact = this.els.$main.find('section#contact');
 
+		// Gallery elements
+		this.els.$galleryGrid = this.els.$gallery.find('.gallery-grid');
+		this.els.$galleryBtn  = this.els.$gallery.find('.gallery-more');
+
+		// TODO: move to this.bindEvents
 		this.els.$galleryBtn.on('click', $.proxy(this.unfoldGalleryGrid, this));
 	},
 
@@ -20,11 +25,11 @@ var app = {
 		this.registerElements();
 		this.initialCalculations();
 		this.initialLoad();
-		this.registerAnimatedBlocks();
 	},
 
 	initialCalculations: function () {
-		this.windowHeight = $(window).outerHeight(true);
+		this.documentHeight = $(document).outerHeight(true)
+		this.windowHeight   = $(window).outerHeight(true);
 	},
 
 	initialLoad: function () {
@@ -46,7 +51,9 @@ var app = {
 
 		// Setting '.page-block' position as relative so veil fading effect works properly
 		this.els.$main.find('.page-block').css('position', 'relative');
-		that.setBlockTops();
+		this.setBlockTops();
+		this.registerAnimatedPaths();
+		this.registerAnimatedBlocks();
 		this.els.$veil.toggleClass('hide', true);
 
 		this.scrollLock = true;
@@ -67,28 +74,85 @@ var app = {
 
 	setBlockHeight: function () {
 		// windows height must be available, check initialCalculations function
-		this.els.$main.find('section#landing').css('height', this.windowHeight + 'px');
+		var $main = this.els.$main,
+			wh    = this.windowHeight;
+
+		$main.find('section#landing').css('height', wh + 'px');
+		$main.find('.page-block-fixed').each(function () {
+			$(this).css('height', wh * 2 + 'px');
+		});
 	},
 
 	setBlockTops: function () {
-		/*this.startOffset = this.windowHeight / 2;
+		var $this,
+			blockTop;
+		this.els.$main.find('.page-block').each(function () {
+			$this = $(this);
+			blockTop = $this.position().top;
+			$this.data('top', blockTop);
+			$this.data('bottom', blockTop + $this.outerHeight(true));
+		});
+	},
 
-		for ( var i = 0 ; i < 3 ; i++ ) {
+	registerAnimatedPaths: function () {
+		var _this = this,
+			defaultLimits = { top: 0, bottom: this.documentHeight };
+		this.animatedPaths = []; // TODO: move above
 
-			var blockTop = $('.page-block-' + i).position().top;
+		d3.selectAll('.page-block .animated-line').each(function (d, j) {
+			var path = d3.select(this),
+				pathLen = path.node().getTotalLength(),
+				blockLimits = $(this).closest('.page-block').data(),
+				diff;
 
-			this.blocks[i].start = blockTop - this.startOffset;
-			this.blocks[i].end   = (blockTop * 1.5) - this.startOffset;
-		}*/
+			if ( typeof blockLimits.top === 'undefined' || typeof blockLimits.bottom === 'undefined' ) {
+				blockLimits = defaultLimits;
+			}
+
+			diff = blockLimits.bottom - blockLimits.top;
+
+			path.attr("stroke-dasharray", pathLen + " " + pathLen)
+				.attr("stroke-dashoffset", pathLen);
+
+			_this.animatedPaths.push({
+				d3el: path,
+				len: pathLen,
+				top: blockLimits.top,
+				bottom: blockLimits.bottom,
+				diff: diff
+			});
+
+		});
 	},
 
 	registerAnimatedBlocks: function () {
+		this.els.$main.find('.page-block-fixed').each(function () {
+		});
 	},
 
 	appScroll: function () {
 		var scrollTop = $(window).scrollTop();
 
 		this.els.$header.toggleClass('shown', scrollTop > 300 );
+
+		this.animatePaths(scrollTop + this.windowHeight);
+	},
+
+	animatePaths: function (stwh) { // stwh: scroll top + window height
+		var listLen = this.animatedPaths.length,
+			offset = 120,
+			path,
+			len;
+		for ( var i = 0 ; i < listLen ; i++ ) {
+			path = this.animatedPaths[i];
+			if ( stwh >= (path.top - offset) && stwh <= (path.bottom + offset) ) {
+				len = path.len;
+				path.d3el.transition()
+					.duration(60)
+					.ease("linear")
+					.attr('stroke-dashoffset', len - (len * (stwh - path.top) / path.diff ));
+			}
+		}
 	},
 
 	unfoldGalleryGrid: function () {
