@@ -198,7 +198,7 @@ section.page-block {
 .svg-aside {
     width: 34%;
     position: absolute;
-    top: 80;
+    top: 80px;
     text-align: center;
 }
 
@@ -208,6 +208,19 @@ section.page-block {
 
 .svg-aside-right {
     right: 0;
+}
+
+.page-block-fixed {
+    position: relative;
+}
+.page-block-fixed .floating-fixed-block {
+    position: relative;
+}
+.page-block-fixed .floating-fixed-block.fixed {
+    position: fixed;
+    top: 80px;
+    left: 10%;
+    right: 10%;
 }
 
 section.page-block#gallery {

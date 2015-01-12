@@ -126,16 +126,26 @@ var app = {
 	},
 
 	registerAnimatedBlocks: function () {
+		var _this = this;
+		this.floatingBlocks = [];
 		this.els.$main.find('.page-block-fixed').each(function () {
+			_this.floatingBlocks.push({
+				$el: $(this),
+				$fixed: $(this).find('.floating-fixed-block'),
+				top: $(this).data().top,
+				bottom: $(this).data().bottom,
+			});
 		});
 	},
 
 	appScroll: function () {
-		var scrollTop = $(window).scrollTop();
+		var scrollTop = $(window).scrollTop(),
+			stwh = scrollTop + this.windowHeight; // stwh: scroll top + window height
 
 		this.els.$header.toggleClass('shown', scrollTop > 300 );
 
-		this.animatePaths(scrollTop + this.windowHeight);
+		this.animatePaths(stwh);
+		this.fixfloatingBlocks(stwh);
 	},
 
 	animatePaths: function (stwh) { // stwh: scroll top + window height
@@ -151,6 +161,23 @@ var app = {
 					.duration(60)
 					.ease("linear")
 					.attr('stroke-dashoffset', len - (len * (stwh - path.top) / path.diff ));
+			}
+		}
+	},
+
+	fixfloatingBlocks: function (stwh) { // stwh: scroll top + window height
+		var listLen = this.floatingBlocks.length,
+			st2wh = stwh - this.windowHeight,
+			block,
+			isfixed;
+		for ( var i = 0 ; i < listLen ; i++ ) {
+			block = this.floatingBlocks[i];
+			isfixed = block.$fixed.hasClass('fixed');
+			if ( st2wh < block.top && isfixed) {
+				block.$fixed.toggleClass('fixed', false);
+			}
+			else if ( st2wh >= block.top && !isfixed) {
+				block.$fixed.toggleClass('fixed', true);
 			}
 		}
 	},
