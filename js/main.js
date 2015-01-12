@@ -18,6 +18,7 @@ var app = {
 		this.els.$galleryBtn  = this.els.$gallery.find('.gallery-more');
 
 		// TODO: move to this.bindEvents
+		$(window).on('beforeunload', function() { $(this).scrollTop(0); });
 		this.els.$galleryBtn.on('click', $.proxy(this.unfoldGalleryGrid, this));
 	},
 
@@ -46,14 +47,18 @@ var app = {
 		}, 500); // Loading delay
 	},
 
+	registerAllAnimatedElements: function () {
+		this.setBlockTops();
+		this.registerAnimatedPaths();
+		this.registerAnimatedBlocks();
+	},
+
 	firstLoadCallback: function () {
 		var that = this;
 
 		// Setting '.page-block' position as relative so veil fading effect works properly
 		this.els.$main.find('.page-block').css('position', 'relative');
-		this.setBlockTops();
-		this.registerAnimatedPaths();
-		this.registerAnimatedBlocks();
+		this.registerAllAnimatedElements();
 		this.els.$veil.toggleClass('hide', true);
 
 		this.scrollLock = true;
@@ -185,6 +190,8 @@ var app = {
 	unfoldGalleryGrid: function () {
 		this.els.$galleryGrid.toggleClass('show-all', true);
 		this.els.$galleryBtn.css({ 'display': 'none' });
+
+		this.registerAllAnimatedElements();
 	}
 
 }

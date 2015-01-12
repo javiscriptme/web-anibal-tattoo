@@ -280,15 +280,27 @@ div.footer-container h3 {
     display: block;
 }
 
+.gallery-grid {
+    margin: 0;
+    padding: 0;
+}
+
 .gallery-grid.show-all .shown-l,
 .gallery-grid.show-all .shown-m,
 .gallery-grid.show-all .shown-s {
     display: block !important;
 }
 
+.gallery-grid li {
+    text-align: center; /* centering images */
+}
+.gallery-grid li img {
+    margin-bottom: 40px;
+}
+
 .gallery-more {
-    width: 50%;
     margin: 0 auto;
+    text-align: center;
 }
 
 /* ==========================================================================
