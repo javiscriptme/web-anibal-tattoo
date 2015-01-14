@@ -25,6 +25,8 @@ var app = {
 	init: function () {
 		this.registerElements();
 		this.initialCalculations();
+		this.initGallery();
+
 		this.initialLoad();
 	},
 
@@ -97,6 +99,10 @@ var app = {
 			$this.data('top', blockTop);
 			$this.data('bottom', blockTop + $this.outerHeight(true));
 		});
+	},
+
+	initGallery: function () {
+		this.initPhotoSwipeFromDOM('.anibal-tatto-gallery');
 	},
 
 	registerAnimatedPaths: function () {
