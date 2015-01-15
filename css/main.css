@@ -161,7 +161,7 @@ section.page-block {
 }
 
 section#landing {
-    background: url('../img/bgs/landing-bg.png');
+    background: url('../img/bgs/landing-bg01.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -174,12 +174,10 @@ section#landing .logo-big {
     bottom: 0;
     left: 0;
     right: 0;
-    width: 50%;
+    width: 400px;
     height: 40%;
     margin: auto;
     text-align: center;
-    font-size: 72px; /* just for the example, TODO remove later */
-    line-height: 72px; /* just for the example, TODO remove later */
 }
 
 section.page-block {
@@ -224,17 +222,18 @@ section.page-block {
 }
 
 section.page-block#gallery {
-    background-color: #f1f1f1;
+    background-color: #393939;
+    color: #f1f1f1;
 }
 
 section.page-block#gallery h2 {
     margin: 0 0 0 20px;
     text-align: center;
+
 }
 
 section.page-block#about {
-    background-color: #393939;
-    color: #f1f1f1;
+    background-color: #f1f1f1;
 }
 
 section.page-block#contact {
@@ -308,8 +307,8 @@ div.footer-container h3 {
    ========================================================================== */
 
 #svg-flower path {
-    stroke: olive;
-    stroke-width: 4px;
+    stroke: #717171;
+    stroke-width: 2px;
 }
 
 /* ==========================================================================
