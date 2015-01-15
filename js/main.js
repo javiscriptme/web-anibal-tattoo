@@ -84,9 +84,10 @@ var app = {
 		var $main = this.els.$main,
 			wh    = this.windowHeight;
 
-		$main.find('section#landing').css('height', wh + 'px');
+		this.els.$landing.css('height', wh + 'px');
+		this.els.$contact.css('height', wh *.8 + 'px');
 		$main.find('.page-block-fixed').each(function () {
-			$(this).css('height', wh * 2 + 'px');
+			$(this).css('height', wh * 1.4 + 'px');
 		});
 	},
 
@@ -163,15 +164,20 @@ var app = {
 		var listLen = this.animatedPaths.length,
 			offset = 120,
 			path,
-			len;
+			len,
+			perc;
 		for ( var i = 0 ; i < listLen ; i++ ) {
 			path = this.animatedPaths[i];
 			if ( stwh >= (path.top - offset) && stwh <= (path.bottom + offset) ) {
+				perc = (stwh - path.top) / path.diff / 2;
+				if ( perc > 1 ) {
+					perc = 1;
+				}
 				len = path.len;
 				path.d3el.transition()
 					.duration(60)
 					.ease("linear")
-					.attr('stroke-dashoffset', len - (len * (stwh - path.top) / path.diff ));
+					.attr('stroke-dashoffset', len - (len * perc));
 			}
 		}
 	},

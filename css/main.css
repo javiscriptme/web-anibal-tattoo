@@ -347,6 +347,7 @@ div.footer-container h3 {
         max-width: 300px;
         height: 300px;
         overflow: hidden;
+        margin-bottom: 52px;
     }
 
     .img-crop img {
