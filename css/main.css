@@ -187,8 +187,8 @@ section.page-block {
 }
 
 .block-content-right {
-    width: 66%;
-    margin-left: 34%;
+    width: 55%;
+    margin-left: 45%;
 }
 .block-content-left {
     width: 66%;
@@ -196,7 +196,7 @@ section.page-block {
 }
 
 .svg-aside {
-    width: 34%;
+    width: 38%;
     position: absolute;
     top: 80px;
     text-align: center;

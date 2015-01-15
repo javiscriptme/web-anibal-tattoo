@@ -87,7 +87,7 @@ var app = {
 		this.els.$landing.css('height', wh + 'px');
 		this.els.$contact.css('height', wh *.8 + 'px');
 		$main.find('.page-block-fixed').each(function () {
-			$(this).css('height', wh * 1.4 + 'px');
+			$(this).css('height', wh * 1.6 + 'px');
 		});
 	},
 
@@ -115,13 +115,15 @@ var app = {
 			var path = d3.select(this),
 				pathLen = path.node().getTotalLength(),
 				blockLimits = $(this).closest('.page-block').data(),
-				diff;
+				diff,
+				top;
 
 			if ( typeof blockLimits.top === 'undefined' || typeof blockLimits.bottom === 'undefined' ) {
 				blockLimits = defaultLimits;
 			}
 
-			diff = blockLimits.bottom - blockLimits.top;
+			top = blockLimits.top + (_this.windowHeight / 2);
+			diff = blockLimits.bottom - top;
 
 			path.attr("stroke-dasharray", pathLen + " " + pathLen)
 				.attr("stroke-dashoffset", pathLen);
@@ -129,7 +131,7 @@ var app = {
 			_this.animatedPaths.push({
 				d3el: path,
 				len: pathLen,
-				top: blockLimits.top,
+				top: top,
 				bottom: blockLimits.bottom,
 				diff: diff
 			});
@@ -169,8 +171,11 @@ var app = {
 		for ( var i = 0 ; i < listLen ; i++ ) {
 			path = this.animatedPaths[i];
 			if ( stwh >= (path.top - offset) && stwh <= (path.bottom + offset) ) {
-				perc = (stwh - path.top) / path.diff / 2;
-				if ( perc > 1 ) {
+				perc = (stwh - path.top) / path.diff;
+				if ( perc < 0 ) {
+					perc = 0;
+				}
+				else if ( perc > 1 ) {
 					perc = 1;
 				}
 				len = path.len;
