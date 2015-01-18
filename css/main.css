@@ -161,21 +161,19 @@ section.page-block {
 }
 
 section#landing {
+    position: relative;
     background: url('../img/bgs/landing-bg01.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: center;
-
 }
 
 section#landing .logo-big {
     position: absolute;
-    top: 0;
+    top: 30%;
     bottom: 0;
     left: 0;
     right: 0;
     width: 400px;
-    height: 40%;
     margin: auto;
     text-align: center;
 }
@@ -239,6 +237,7 @@ section.page-block#about {
 section.page-block#contact {
     background-color: #f1f1f1;
     color: #393939;
+    position: relative;
 }
 
 div.footer-container {

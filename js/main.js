@@ -84,10 +84,10 @@ var app = {
 		var $main = this.els.$main,
 			wh    = this.windowHeight;
 
-		this.els.$landing.css('height', wh + 'px');
+		this.els.$landing.css('height', (wh > 800) ? 800 : wh + 'px'); // Landing image bg is 800px high
 		this.els.$contact.css('height', wh *.8 + 'px');
 		$main.find('.page-block-fixed').each(function () {
-			$(this).css('height', wh * 1.6 + 'px');
+			$(this).css('height', wh * 1.2 + 'px');
 		});
 	},
 
