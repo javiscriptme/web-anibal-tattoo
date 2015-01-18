@@ -275,6 +275,10 @@ section.page-block#contact {
     position: relative;
 }
 
+section.page-block#contact .block-content-left {
+    padding-top: 8%;
+}
+
 div.footer-container {
     background-color: #393939;
 }
