@@ -140,10 +140,17 @@ section#veil.disolve {
 .header-container.sticky .title {
     display: inline-block;
     margin: 0 0 0 32px;
-    line-height: 50px;
     font-size: 16px;
     font-weight: 700;
     text-transform: uppercase;
+}
+
+.header-container #title-svg {
+    height: 64px;
+}
+
+.header-container #title-svg path {
+    fill: #000000;
 }
 
 .header-container nav {
@@ -151,6 +158,7 @@ section#veil.disolve {
     top: 0;
     right: 32px;
     display: none;
+    line-height: 68px;
 }
 
 .header-container nav ul {
