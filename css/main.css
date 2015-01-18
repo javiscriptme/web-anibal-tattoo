@@ -235,6 +235,16 @@ section.page-block {
     right: 10%;
 }
 
+section.page-block h2 {
+    text-align: center;
+    font-size: 2.4em;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+section.page-block hr {
+    margin: 40px 30% 30px;
+}
+
 section.page-block#gallery {
     background-color: #393939;
     color: #f1f1f1;
@@ -243,11 +253,20 @@ section.page-block#gallery {
 section.page-block#gallery h2 {
     margin: 0 0 0 20px;
     text-align: center;
-
 }
 
 section.page-block#about {
     background-color: #f1f1f1;
+}
+
+section.page-block#about h3 {
+    text-align: center;
+    font-weight: 300;
+    font-size: 1.3em;
+}
+
+section.page-block#about .block-content-right {
+    padding-top: 6%;
 }
 
 section.page-block#contact {
@@ -260,14 +279,11 @@ div.footer-container {
     background-color: #393939;
 }
 
-
-
 div.footer-container h3 {
     margin: 0;
     color: #f1f1f1;
      line-height: 50px;
 }
-
 
 /* ==========================================================================
    Gallery (s)
