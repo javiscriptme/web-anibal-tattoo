@@ -111,26 +111,34 @@ section#veil.disolve {
     top: 0;
     left: 0;
     right: 0;
-    display: none;
-    background-color: rgba(252, 252, 254, 0.80);
     color: rgb(53, 69, 78);
     z-index: 2000;
 }
-.header-container.shown {
-    display: block;
+.header-container.sticky {
+    background-color: rgba(252, 252, 254, 0.80);
 }
 .header-container a {
-    color: rgb(53, 69, 78);
+    color: rgb(252, 252, 254);
     text-decoration: none;
     font-size: 16px;
     line-height: 50px;
     padding: 0 24px;
 }
+.header-container.sticky a {
+    color: rgb(53, 69, 78);
+}
 .header-container a:hover {
+    color: rgb(252, 252, 254);
+}
+.header-container.sticky a:hover {
     color: rgb(53, 69, 78);
 }
 
 .header-container .title {
+    display: none;
+}
+.header-container.sticky .title {
+    display: inline-block;
     margin: 0 0 0 32px;
     line-height: 50px;
     font-size: 16px;

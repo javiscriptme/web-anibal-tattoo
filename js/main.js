@@ -156,7 +156,7 @@ var app = {
 		var scrollTop = $(window).scrollTop(),
 			stwh = scrollTop + this.windowHeight; // stwh: scroll top + window height
 
-		this.els.$header.toggleClass('shown', scrollTop > 300 );
+		this.els.$header.toggleClass('sticky', scrollTop > (this.windowHeight - 80) );
 
 		this.animatePaths(stwh);
 		this.fixfloatingBlocks(stwh);
