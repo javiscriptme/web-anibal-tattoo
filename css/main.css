@@ -115,7 +115,7 @@ section#veil.disolve {
     z-index: 2000;
 }
 .header-container.sticky {
-    background-color: rgba(252, 252, 254, 0.80);
+    background-color: rgba(252, 252, 254, 0.95);
 }
 .header-container a {
     color: rgb(252, 252, 254);
@@ -248,9 +248,7 @@ section.page-block hr {
 section.page-block#gallery {
     background-color: #393939;
     color: #f1f1f1;
-}
-section.page-block#gallery {
-    padding-top: 120px;
+    padding: 120px 0 80px 0;
 }
 
 section.page-block#gallery h2 {
@@ -297,8 +295,21 @@ div.footer-container h3 {
    ========================================================================== */
 
 .thumb {
-    width: 90%;
-    margin: 0 5%;
+    float: left;
+}
+
+.img-crop {
+    width: 260px;
+    height: 260px;
+    overflow: hidden;
+    margin: 8px;
+    border: 8px solid #202020;
+}
+
+.img-crop img {
+    width: 260px;
+    height: auto;
+    vertical-align: middle;
 }
 
 .shown-l {
@@ -318,7 +329,8 @@ div.footer-container h3 {
 }
 
 .gallery-grid {
-    margin: 0;
+    width: 320px;
+    margin: 0 auto 40px;
     padding: 0;
 }
 
@@ -339,6 +351,16 @@ div.footer-container h3 {
     margin: 0 auto;
     text-align: center;
 }
+
+.gallery-more button {
+    font-family: 'lato';
+    background-color: #202020;
+    color: #FFF;
+    border: none;
+    padding: 6px 32px;
+    text-transform: uppercase;
+}
+
 
 /* ==========================================================================
    Svg
@@ -379,31 +401,21 @@ div.footer-container h3 {
    Gallery (m)
    ========================================================================== */
 
-    .thumb {
-        float: left;
-        width: 45%;
-        margin: 0 2.5%;
-    }
-
     .shown-m {
         display: block
     }
 
-   .img-crop {
-        max-width: 300px;
-        height: 300px;
-        overflow: hidden;
-        margin-bottom: 52px;
-    }
-
-    .img-crop img {
-        width: 300px;
-        height: auto;
-        vertical-align: middle;
-    }
-
 }
-
+@media only screen and (min-width: 620px) {
+    .gallery-grid {
+        width: 584px;
+    }
+}
+@media only screen and (min-width: 960px) {
+    .gallery-grid {
+        width: 876px;
+    }
+}
 @media only screen and (min-width: 1024px) {
 
 /* ===============
@@ -419,18 +431,17 @@ div.footer-container h3 {
    Gallery (l)
    ========================================================================== */
 
-    .thumb {
-        float: left;
-        width: 22%;
-        margin: 0 1.5%;
-    }
-
     .shown-l {
         display: block;
     }
 
     .hidden-l {
         display: none;
+    }
+}
+@media only screen and (min-width: 1260px) {
+    .gallery-grid {
+        width: 1168px;
     }
 }
 
