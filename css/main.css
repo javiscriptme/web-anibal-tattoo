@@ -385,6 +385,10 @@ div.footer-container h3 {
     stroke: #717171;
     stroke-width: 2px;
 }
+#svg-tiger path {
+    stroke: #808080;
+    stroke-width: 2px;
+}
 
 /* ==========================================================================
    Media Queries
