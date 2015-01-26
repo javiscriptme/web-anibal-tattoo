@@ -23,9 +23,21 @@ var app = {
 	},
 
 	init: function () {
+		var _this = this;
 		this.registerElements();
 		this.initialCalculations();
 		this.initGallery();
+
+		var $artistToggle = this.els.$main.find('.artist-toggle');
+		$artistToggle.delegate('li', 'click', function () {
+			$artistToggle.find('li').removeClass('selected');
+			$(this).addClass('selected');
+			_this.els.$galleryGrid.removeClass('selected-anibal');
+			_this.els.$galleryGrid.removeClass('selected-javier');
+			_this.els.$galleryGrid.removeClass('selected-victor');
+			_this.els.$galleryGrid.addClass($(this).data('artist'));
+			_this.registerAllAnimatedElements();
+		});
 
 		this.initialLoad();
 	},
@@ -103,7 +115,7 @@ var app = {
 	},
 
 	initGallery: function () {
-		this.initPhotoSwipeFromDOM('.anibal-tatto-gallery');
+		this.initPhotoSwipeFromDOM('.antiek-tatto-gallery');
 	},
 
 	registerAnimatedPaths: function () {
