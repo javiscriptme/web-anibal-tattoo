@@ -256,6 +256,11 @@ section.page-block#gallery h2 {
     text-align: center;
 }
 
+section.page-block#artists {
+    background-color: #f1f1f1;
+}
+
+
 section.page-block#about {
     background-color: #f1f1f1;
 }
@@ -271,9 +276,17 @@ section.page-block#about .block-content-right {
 }
 
 section.page-block#contact {
-    background-color: #f1f1f1;
-    color: #393939;
+    background-color: #393939;
+    color: #f1f1f1;
     position: relative;
+}
+
+section.page-block#contact .block-text,
+section.page-block#contact .block-svg {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center
 }
 
 section.page-block#contact .block-content-left {
@@ -387,7 +400,7 @@ div.footer-container h3 {
 }
 #svg-tiger path {
     stroke: #808080;
-    stroke-width: 2px;
+    stroke-width: 1px;
 }
 
 /* ==========================================================================
