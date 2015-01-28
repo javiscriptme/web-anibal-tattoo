@@ -143,6 +143,7 @@ section#veil.disolve {
     font-size: 16px;
     font-weight: 700;
     text-transform: uppercase;
+    line-height: 72px;
 }
 
 .header-container #title-svg {
