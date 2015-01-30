@@ -294,6 +294,29 @@ section.page-block#contact .block-content-left {
     padding-top: 8%;
 }
 
+section.page-block#artists ul.artist-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+section.page-block#artists li.artist-info {
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+section.page-block#artists li.artist-info img {
+    width: 300px;
+    height: 300px;
+    background-color: #393939;
+    margin-bottom: 20px;
+}
+
+section.page-block#artists li.artist-info .name {
+    font-size: 1.4em;
+    text-transform: uppercase;
+}
+
 div.footer-container {
     background-color: #393939;
 }
@@ -454,6 +477,11 @@ div.footer-container h3 {
     .wrapper {
         width: 1026px; /* 1140px - 10% for margins */
         margin: 0 auto;
+    }
+
+    section.page-block#artists li.artist-info {
+        width: 49%;
+        display: inline-block;
     }
 
     /* ==========================================================================
