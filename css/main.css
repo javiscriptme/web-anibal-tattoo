@@ -332,16 +332,6 @@ section.page-block#artists li.artist-info .name {
     text-transform: uppercase;
 }
 
-div.footer-container {
-    background-color: #393939;
-}
-
-div.footer-container h3 {
-    margin: 0;
-    color: #f1f1f1;
-     line-height: 50px;
-}
-
 /* ==========================================================================
    Gallery (s)
    ========================================================================== */

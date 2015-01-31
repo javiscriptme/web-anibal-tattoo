@@ -6,11 +6,13 @@ var app = {
 		this.els.$veil   = $('section#veil');
 		this.els.$main   = $('section#main');
 		this.els.$header = $('.header-container');
+		this.els.$nav    = this.els.$header.find('nav');
 
 		// Sections
 		this.els.$landing = this.els.$main.find('section#landing');
 		this.els.$gallery = this.els.$main.find('section#gallery');
 		this.els.$about   = this.els.$main.find('section#about');
+		this.els.$artists = this.els.$main.find('section#artists');
 		this.els.$contact = this.els.$main.find('section#contact');
 
 		// Gallery elements
@@ -19,6 +21,7 @@ var app = {
 
 		// TODO: move to this.bindEvents
 		$(window).on('beforeunload', function() { $(this).scrollTop(0); });
+		this.els.$nav.delegate('a', 'click', $.proxy(this.scrollToAnchor, this));
 		this.els.$galleryBtn.on('click', $.proxy(this.unfoldGalleryGrid, this));
 	},
 
@@ -115,6 +118,13 @@ var app = {
 
 	initGallery: function () {
 		this.initPhotoSwipeFromDOM('.antiek-tatto-gallery');
+	},
+
+	scrollToAnchor: function (e) {
+		e.preventDefault();
+		$('html, body').animate({
+			scrollTop: this.els.$main.find( $(e.target).attr('href')).position().top
+		}, 800);
 	},
 
 	registerAnimatedPaths: function () {
