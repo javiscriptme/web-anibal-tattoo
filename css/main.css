@@ -218,10 +218,6 @@ section.page-block {
     width: 55%;
     margin-left: 45%;
 }
-.block-content-left {
-    width: 66%;
-    margin-right: 34%;
-}
 
 .svg-aside {
     width: 38%;
@@ -254,6 +250,7 @@ section.page-block {
 section.page-block h2 {
     text-align: center;
     font-size: 2.4em;
+    line-height: 1em;
     font-weight: 300;
     text-transform: uppercase;
 }
@@ -305,8 +302,13 @@ section.page-block#contact .block-svg {
     text-align: center
 }
 
-section.page-block#contact .block-content-left {
-    padding-top: 8%;
+section.page-block#contact .block-text {
+    margin-bottom: 60px;
+}
+
+section.page-block#artists h2 {
+    margin: 0 0 52px 0;
+    text-align: center;
 }
 
 section.page-block#artists ul.artist-list {
@@ -316,7 +318,7 @@ section.page-block#artists ul.artist-list {
 }
 
 section.page-block#artists li.artist-info {
-    margin-bottom: 32px;
+    margin-bottom: 40px;
     text-align: center;
 }
 
@@ -329,8 +331,42 @@ section.page-block#artists li.artist-info img {
 
 section.page-block#artists li.artist-info .name {
     font-size: 1.4em;
+    margin-bottom: 8px;
     text-transform: uppercase;
 }
+
+section.page-block#artists li.artist-info .desc {
+    font-size: 1.1em;
+    margin-bottom: 4px;
+}
+
+section.page-block#artists li.artist-info a {
+    color: #595959;
+    text-decoration: none;
+}
+
+section.page-block#artists li.artist-info a:hover {
+    color: #292929;
+}
+
+section.page-block#artists li.artist-info .email {
+    position: relative;
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+section.page-block#artists li.artist-info .email i {
+    position: relative;
+    top: 2px;
+    margin-right: 6px;
+}
+
+section.page-block#artists .social-links i {
+    font-size: 1.6em;
+    margin: 0 10px;
+}
+
 
 /* ==========================================================================
    Gallery (s)
@@ -352,6 +388,36 @@ section.page-block#artists li.artist-info .name {
     width: 260px;
     height: auto;
     vertical-align: middle;
+}
+
+.thumb figure {
+    position: relative;
+}
+
+.thumb figure .thumb-veil {
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, .33);
+}
+
+.thumb figure:hover .thumb-veil {
+    opacity: 1;
+    transition: all 400ms ease;
+}
+
+.thumb figure .thumb-veil i {
+    color: #e0e0e0;
+    font-size: 2em;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 50% 50%;
 }
 
 .gallery-grid {
