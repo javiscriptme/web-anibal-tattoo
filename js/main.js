@@ -232,6 +232,10 @@ var app = {
 		this.registerAllAnimatedElements();
 	},
 
+	toggleNavBar: function ( show ) {
+		this.els.$header.toggleClass('hidden', !show);
+	},
+
 	initPhotoSwipeFromDOM: function (gallerySelector) {
 		// Code example taken from plugins page: http://photoswipe.com/documentation/getting-started.html
 		// Grabs images from DOM and builds object to initialize library. Implemented in pure js.
@@ -399,6 +403,10 @@ var app = {
 			// Pass data to PhotoSwipe and initialize it
 			gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
 			gallery.init();
+			app.toggleNavBar(false);
+			gallery.listen('close', function() {
+				app.toggleNavBar(true);
+			});
 		};
 
 		// loop through all gallery elements and bind events
