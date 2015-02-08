@@ -214,26 +214,6 @@ section.page-block {
     padding: 80px 10%;
 }
 
-.block-content-right {
-    width: 55%;
-    margin-left: 45%;
-}
-
-.svg-aside {
-    width: 38%;
-    position: absolute;
-    top: 80px;
-    text-align: center;
-}
-
-.svg-aside-left {
-    left: 0;
-}
-
-.svg-aside-right {
-    right: 0;
-}
-
 .page-block-fixed {
     position: relative;
 }
@@ -284,8 +264,17 @@ section.page-block#about h3 {
     font-size: 1.3em;
 }
 
-section.page-block#about .block-content-right {
+section.page-block#about .svg-flower {
+    position: absolute;
+    top: 160px;
+    width: 60%;
+    margin: 0 20%;
+}
+
+section.page-block#about .block-content {
     padding-top: 6%;
+    width: 80%;
+    margin: 0 auto;
 }
 
 section.page-block#contact {
@@ -302,9 +291,25 @@ section.page-block#contact .block-svg {
     text-align: center
 }
 
-section.page-block#contact .block-text {
+section.page-block#contact .block-info {
     margin-bottom: 60px;
 }
+
+section.page-block#contact .block-text {
+    position: relative;
+    min-height: 260px;
+}
+
+section.page-block#contact .contact-info {
+    width: 300px;
+    margin: 0 auto;
+    padding-top: 12px;
+    padding-bottom: 35px;
+    font-size: 1.2em;
+    line-height: 1.6em;
+    text-align: left;
+}
+
 
 section.page-block#artists h2 {
     margin: 0 0 52px 0;
@@ -492,6 +497,8 @@ section.page-block#artists .social-links i {
 #svg-flower path {
     stroke: #717171;
     stroke-width: 2px;
+    opacity: .2;
+    filter: alpha(opacity=20);
 }
 #svg-tiger path {
     stroke: #808080;
@@ -538,6 +545,22 @@ section.page-block#artists .social-links i {
     .gallery-grid {
         width: 876px;
     }
+
+    section.page-block#contact .contact-info {
+        width: 100%;
+        margin-right: 280px;
+        padding-top: 40px;
+        font-size: 1.2em;
+        line-height: 2em;
+        text-align: left;
+    }
+
+    section.page-block#contact .contact-map {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
 }
 @media only screen and (min-width: 1024px) {
 
@@ -548,6 +571,23 @@ section.page-block#artists .social-links i {
     .wrapper {
         width: 1026px; /* 1140px - 10% for margins */
         margin: 0 auto;
+    }
+
+    section.page-block#about .svg-flower {
+        top: 80px;
+        width: 38%;
+        margin: 0;
+    }
+
+    section.page-block#about .svg-flower path {
+        opacity: 1;
+        filter: alpha(opacity=100);
+    }
+
+    section.page-block#about .block-content {
+        padding-top: 6%;
+        width: 55%;
+        margin-left: 45%;
     }
 
     section.page-block#artists li.artist-info {
