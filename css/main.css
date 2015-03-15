@@ -277,6 +277,11 @@ section.page-block#about .block-content {
     margin: 0 auto;
 }
 
+section.page-block#about p {
+    font-size: 1.2em;
+    line-height: 1.8em;
+}
+
 section.page-block#contact {
     background-color: #393939;
     color: #f1f1f1;
@@ -306,10 +311,19 @@ section.page-block#contact .contact-info {
     padding-top: 12px;
     padding-bottom: 35px;
     font-size: 1.2em;
+    font-weight: 300;
     line-height: 1.6em;
     text-align: left;
 }
 
+section.page-block#contact .contact-info a {
+    color: #808080;
+    text-decoration: none;
+}
+
+section.page-block#contact .contact-info a.small {
+    font-size: .9em;
+}
 
 section.page-block#artists h2 {
     margin: 0 0 52px 0;
@@ -575,6 +589,7 @@ section.page-block#artists .social-links i {
 
     section.page-block#about .svg-flower {
         top: 80px;
+        left: -6%;
         width: 38%;
         margin: 0;
     }
@@ -585,9 +600,9 @@ section.page-block#artists .social-links i {
     }
 
     section.page-block#about .block-content {
-        padding-top: 6%;
-        width: 55%;
-        margin-left: 45%;
+        padding-top: 2%;
+        width: 60%;
+        margin-left: 40%;
     }
 
     section.page-block#artists li.artist-info {
