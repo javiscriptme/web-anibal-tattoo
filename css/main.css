@@ -417,6 +417,45 @@ section.page-block#artists .social-links i {
     margin: 0 10px;
 }
 
+section.page-block#guest-artists {
+    background-color: #393939;
+    color: #f1f1f1;
+    position: relative;
+}
+
+section.page-block#guest-artists a {
+    color: #f1f1f1;
+}
+
+section.page-block#books {
+    background-color: #f1f1f1;
+    position: relative;
+}
+
+section.page-block#books a {
+    color: black;
+}
+
+section.page-block#guest-artists hr,
+section.page-block#books hr {
+    margin-bottom: 50px;
+}
+
+section.page-block#guest-artists p,
+section.page-block#books p {
+    margin-bottom: 32px;
+}
+
+section.page-block#guest-artists a,
+section.page-block#books a {
+    display: block;
+    text-align: center;
+}
+
+section.page-block#guest-artists a:hover,
+section.page-block#books a:hover {
+    text-decoration: none;
+}
 
 /* ==========================================================================
    Gallery (s)
