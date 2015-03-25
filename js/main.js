@@ -23,6 +23,7 @@ var app = {
 		// TODO: move to this.bindEvents
 		$(window).on('beforeunload', function() { $(this).scrollTop(0); });
 		this.els.$nav.delegate('a', 'click', $.proxy(this.scrollToAnchor, this));
+		this.els.$nav.delegate('.menu-toggle', 'click', $.proxy(this.toggleMenu, this));
 		this.els.$galleryBtn.on('click', $.proxy(this.unfoldGalleryGrid, this));
 	},
 
@@ -122,6 +123,7 @@ var app = {
 	},
 
 	scrollToAnchor: function (e) {
+		this.toggleMenu(false);
 		e.preventDefault();
 		$('html, body').animate({
 			scrollTop: this.els.$main.find( $(e.target).attr('href')).position().top
@@ -224,6 +226,10 @@ var app = {
 				block.$fixed.toggleClass('fixed', true);
 			}
 		}
+	},
+
+	toggleMenu: function (opt) {
+		this.els.$nav.toggleClass('unfold', opt);
 	},
 
 	unfoldGalleryGrid: function () {
