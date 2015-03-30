@@ -50,6 +50,8 @@ var app = {
 	initialCalculations: function () {
 		this.documentHeight = $(document).outerHeight(true)
 		this.windowHeight   = $(window).outerHeight(true);
+		this.windowWidth   = $(window).outerWidth(true);
+		this.mobileWidth   = 960;
 	},
 
 	initialLoad: function () {
@@ -67,6 +69,9 @@ var app = {
 	},
 
 	registerAllAnimatedElements: function () {
+		if ( this.windowWidth < this.mobileWidth ) {
+			return;
+		}
 		this.setBlockTops();
 		this.registerAnimatedPaths();
 		this.registerAnimatedBlocks();
@@ -77,7 +82,9 @@ var app = {
 
 		// Setting '.page-block' position as relative so veil fading effect works properly
 		this.els.$main.find('.page-block').css('position', 'relative');
-		this.registerAllAnimatedElements();
+		if ( this.windowWidth >= this.mobileWidth ) {
+			this.registerAllAnimatedElements();
+		}
 		this.els.$veil.toggleClass('hide', true);
 
 		this.scrollLock = true;
@@ -182,8 +189,10 @@ var app = {
 
 		this.els.$header.toggleClass('sticky', scrollTop > (this.windowHeight - 80) );
 
-		this.animatePaths(stwh);
-		this.fixfloatingBlocks(stwh);
+		if ( this.windowWidth >= this.mobileWidth ) {
+			this.animatePaths(stwh);
+			this.fixfloatingBlocks(stwh);
+		}
 	},
 
 	animatePaths: function (stwh) { // stwh: scroll top + window height
