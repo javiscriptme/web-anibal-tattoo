@@ -22,7 +22,7 @@ var app = {
 
 		// TODO: move to this.bindEvents
 		$(window).on('beforeunload', function() { $(this).scrollTop(0); });
-		this.els.$nav.delegate('a', 'click', $.proxy(this.scrollToAnchor, this));
+		this.els.$header.delegate('a', 'click', $.proxy(this.scrollToAnchor, this));
 		this.els.$nav.delegate('.menu-toggle', 'click', $.proxy(this.toggleMenu, this));
 		this.els.$galleryBtn.on('click', $.proxy(this.unfoldGalleryGrid, this));
 	},

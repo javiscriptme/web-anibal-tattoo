@@ -66,6 +66,10 @@ textarea {
     resize: vertical;
 }
 
+a, a:hover, a:active, a:focus {
+    outline: 0;
+}
+
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
@@ -137,7 +141,7 @@ section#veil.disolve {
     background-color: rgb(252, 252, 254);
     background-color: rgba(252, 252, 254, 0.95);
 }
-.header-container a {
+.header-container li a {
     display: block;
     width: 95%;
     color: rgb(252, 252, 254);
@@ -148,15 +152,37 @@ section#veil.disolve {
 }
 
 .header-container .title {
-    display: none;
-}
-.header-container.sticky .title {
+    position: relative;
     display: inline-block;
+    visibility: hidden;
+    opacity: 0;
     margin: 0 0 0 32px;
     font-size: 16px;
     font-weight: 700;
     text-transform: uppercase;
     line-height: 72px;
+    z-index: 4000;
+}
+.header-container.sticky .title {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1000ms ease;
+}
+
+.header-container .title a {
+    font-size: 18px;
+    color: #35454e;
+    text-decoration: none;
+}
+
+.header-container .title a:hover {
+    color: #111111;
+}
+
+.header-container .title img {
+    position: relative;
+    top: -2px;
+    margin-right: 12px;
 }
 
 .header-container #title-svg {
@@ -172,11 +198,14 @@ section#veil.disolve {
     top: 0;
     width: 100%;
     line-height: 68px;
+    z-index: 3000;
 }
 
 .header-container nav .menu-toggle {
     text-align: right;
-    margin-right: 5%;
+    width: 40%;
+    padding-right: 5%;
+    margin-left: 55%;
     cursor: pointer;
     -webkit-user-select: none;  /* Chrome all / Safari all */
     -moz-user-select: none;     /* Firefox all */
@@ -664,19 +693,19 @@ section.page-block#books a:hover {
         background: none;
     }
 
-    .header-container a {
+    .header-container li a {
         display: inline;
         margin: 0;
         padding: 0 24px;
     }
 
-    .header-container.sticky a {
+    .header-container.sticky li a {
         color: rgb(53, 69, 78);
     }
-    .header-container a:hover {
+    .header-container li a:hover {
         color: rgb(252, 252, 254);
     }
-    .header-container.sticky a:hover {
+    .header-container.sticky li a:hover {
         color: rgb(53, 69, 78);
     }
 
