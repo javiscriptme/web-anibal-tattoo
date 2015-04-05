@@ -293,13 +293,12 @@ section#landing .logo-big {
     bottom: 0;
     left: 0;
     right: 0;
-    width: 400px;
     margin: auto;
     text-align: center;
 }
 
 section.page-block {
-    padding: 80px 10%;
+    padding: 80px 0;
 }
 
 .page-block-fixed {
@@ -394,7 +393,7 @@ section.page-block#contact .block-text {
 }
 
 section.page-block#contact .contact-info {
-    width: 300px;
+    width: 280px;
     margin: 0 auto;
     padding-top: 12px;
     padding-bottom: 35px;
@@ -526,7 +525,7 @@ section.page-block#books a:hover {
     width: 260px;
     height: 260px;
     overflow: hidden;
-    margin: 8px;
+    margin: 8px auto;
     border: 8px solid #202020;
 }
 
@@ -574,6 +573,7 @@ section.page-block#books a:hover {
 
 .gallery-grid li {
     text-align: center; /* centering images */
+    width: 100%;
 }
 .gallery-grid li img {
     margin-bottom: 40px;
@@ -616,19 +616,28 @@ section.page-block#books a:hover {
     border-bottom: 2px solid #f1f1f1;
 }
 
-#gallery ul.selected-anibal .artist-victor,
-#gallery ul.selected-anibal .artist-javier {
+#gallery ul li {
     display: none;
 }
 
-#gallery ul.selected-victor .artist-anibal,
-#gallery ul.selected-victor .artist-javier {
-    display: none;
+#gallery ul.selected-all li {
+    display: inline-block;
 }
 
-#gallery ul.selected-javier .artist-anibal,
-#gallery ul.selected-javier .artist-victor {
-    display: none;
+#gallery ul.selected-anibal li.artist-anibal {
+    display: inline-block;
+}
+#gallery ul.selected-johe li.artist-johe {
+    display: inline-block;
+}
+#gallery ul.selected-michael li.artist-michael {
+    display: inline-block;
+}
+#gallery ul.selected-robbin li.artist-robbin {
+    display: inline-block;
+}
+#gallery ul.selected-victor li.artist-victor {
+    display: inline-block;
 }
 
 /* ==========================================================================
@@ -665,14 +674,23 @@ section.page-block#books a:hover {
         margin: 0 0.7%;
     }
 
+    section.page-block {
+        padding: 80px 10%;
+    }
+
 /* ==========================================================================
    Gallery (m)
    ========================================================================== */
 
 }
 @media only screen and (min-width: 620px) {
+}
+@media only screen and (min-width: 720px) {
     .gallery-grid {
-        width: 584px;
+        width: 640px;
+    }
+    .gallery-grid li {
+        width: 50%;
     }
 }
 @media only screen and (min-width: 960px) {
@@ -707,10 +725,6 @@ section.page-block#books a:hover {
     }
     .header-container.sticky li a:hover {
         color: rgb(53, 69, 78);
-    }
-
-    .gallery-grid {
-        width: 876px;
     }
 
     section.page-block#contact .contact-info {
@@ -763,13 +777,23 @@ section.page-block#books a:hover {
         display: inline-block;
     }
 
+    .gallery-grid {
+        width: 960px;
+    }
+    .gallery-grid li {
+        width: 33.3%;
+    }
+
     /* ==========================================================================
    Gallery (l)
    ========================================================================== */
 }
 @media only screen and (min-width: 1260px) {
     .gallery-grid {
-        width: 1168px;
+        width: 1160px;
+    }
+    .gallery-grid li {
+        width: 25%;
     }
 }
 
