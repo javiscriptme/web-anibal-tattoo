@@ -607,11 +607,13 @@ section.page-block#books a:hover {
     border-bottom: 2px solid #f1f1f1;
 }
 
-#gallery ul li {
+#gallery ul li,
+#gallery ul.selected-all li.thumb-more {
     display: none;
 }
 
-#gallery ul.selected-all li {
+#gallery ul.selected-all li,
+#gallery ul.selected-all.show-all li.thumb-more {
     display: inline-block;
 }
 
