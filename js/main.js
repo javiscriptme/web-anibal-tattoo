@@ -37,9 +37,9 @@ var app = {
 		$artistToggle.delegate('li', 'click', function () {
 			$artistToggle.find('li').removeClass('selected');
 			$(this).addClass('selected');
-			_this.els.$galleryGrid.removeClass('selected-anibal');
-			_this.els.$galleryGrid.removeClass('selected-javier');
-			_this.els.$galleryGrid.removeClass('selected-victor');
+			_this.els.$galleryGrid.removeClass (function (index, css) {
+				return (css.match (/(^|\s)selected-\S+/g) || []).join(' ');
+			});
 			_this.els.$galleryGrid.addClass($(this).data('artist'));
 			_this.registerAllAnimatedElements();
 		});

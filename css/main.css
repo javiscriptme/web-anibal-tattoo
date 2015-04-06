@@ -455,19 +455,6 @@ section.page-block#artists li.artist-info a:hover {
     color: #292929;
 }
 
-section.page-block#artists li.artist-info .email {
-    position: relative;
-    font-size: 1.1em;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-section.page-block#artists li.artist-info .email i {
-    position: relative;
-    top: 2px;
-    margin-right: 6px;
-}
-
 section.page-block#artists .social-links i {
     font-size: 1.6em;
     margin: 0 10px;
@@ -566,7 +553,7 @@ section.page-block#books a:hover {
 }
 
 .gallery-grid {
-    width: 320px;
+    width: 300px;
     margin: 0 auto 40px;
     padding: 0;
 }
@@ -599,15 +586,19 @@ section.page-block#books a:hover {
 }
 
 #gallery ul.artist-toggle {
+    width: 300px;
     padding: 0;
-    margin: 0 0 24px 0;
+    margin: 0 auto 24px;
     list-style: none;
 }
 
 #gallery ul.artist-toggle li {
     display: inline-block;
-    margin: 0 8px;
-    padding: 2px 12px;
+    float: left;
+    width: 50%;
+    padding: 8px 0;
+    border-bottom: 2px solid #333333;
+    text-transform: capitalize;
     cursor: pointer;
 }
 
@@ -686,6 +677,9 @@ section.page-block#books a:hover {
 @media only screen and (min-width: 620px) {
 }
 @media only screen and (min-width: 720px) {
+    #gallery ul.artist-toggle {
+        width: 560px;
+    }
     .gallery-grid {
         width: 640px;
     }
@@ -742,6 +736,16 @@ section.page-block#books a:hover {
         right: 0;
     }
 
+    #gallery ul.artist-toggle {
+        width: 100%;
+    }
+
+    #gallery ul.artist-toggle li {
+        float: none;
+        width: auto;
+        margin: 0 8px;
+        padding: 4px 20px;
+    }
 }
 @media only screen and (min-width: 1024px) {
 
