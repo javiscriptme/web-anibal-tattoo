@@ -254,21 +254,24 @@ var app = {
 
 	clickGalleryThumbnail: function (e) {
 		e.preventDefault();
-		this.openGallery($(e.currentTarget).index());
+		this.openGallery($(e.currentTarget));
 	},
 
-	openGallery: function (idx) {
+	openGallery: function (currentTarget) {
 		var _this = this,
 			$gallery = this.els.$galleryGrid,
 			pswpElement = document.querySelectorAll('.pswp')[0],
 			items = [],
+			idx = null,
+			currentTargetImgSrc = currentTarget.find('img').attr('src'),
 			$this,
 			$a,
 			options,
 			size;
 
-		$gallery.find('li.thumb').each(function () {
+		$gallery.find('li.thumb').filter(':visible').each(function (itemIdx) {
 			$this = $(this);
+
 			$a = $this.find('figure a');
 			size = $a.data('size').split('x');
 
@@ -280,6 +283,10 @@ var app = {
 				w: parseInt(size[0], 10),
 				h: parseInt(size[1], 10)
 			});
+
+			if ( $this.find('img').attr('src') === currentTargetImgSrc ) {
+				idx = itemIdx;
+			}
 		});
 
 		options = {
