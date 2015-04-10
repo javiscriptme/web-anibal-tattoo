@@ -243,7 +243,6 @@ var app = {
 
 	unfoldGalleryGrid: function () {
 		this.els.$galleryGrid.toggleClass('show-all', true);
-		this.els.$galleryBtn.css({ 'display': 'none' });
 
 		this.registerAllAnimatedElements();
 	},

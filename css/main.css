@@ -576,13 +576,19 @@ section.page-block#books a:hover {
     background-color: rgba(32, 32, 32, 0.9);
 }
 
-.gallery-more {
-    margin: 0 auto;
+.gallery-grid li.gallery-more {
+    width: 100%;
+    margin: 32px auto 0;
     text-align: center;
 }
 
-.gallery-more button {
+#gallery ul.gallery-grid.show-all li.gallery-more {
+    display: none;
+}
+
+.gallery-grid li.gallery-more button {
     font-family: 'lato';
+    width: 200px;
     background-color: #202020;
     color: #FFF;
     border: none;
