@@ -454,6 +454,7 @@ section.page-block#artists li.artist-info .desc {
 section.page-block#artists li.artist-info a {
     color: #595959;
     text-decoration: none;
+    transition: color 400ms ease 60ms;
 }
 
 section.page-block#artists li.artist-info a:hover {
