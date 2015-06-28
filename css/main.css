@@ -409,12 +409,39 @@ section.page-block#contact .contact-info {
 }
 
 section.page-block#contact .contact-info a {
-    color: #808080;
+    display: block;
+    color: #F0F0F0;
     text-decoration: none;
+    border-radius: 4px;
 }
 
-section.page-block#contact .contact-info a.small {
-    font-size: .9em;
+section.page-block#contact .contact-info a:hover {
+    background-color: #494949;
+    transition: all 400ms ease;
+}
+
+section.page-block#contact .contact-info a:hover i {
+    color: #F0F0F0;
+    transition: all 200ms ease;
+}
+
+section.page-block#contact .info-item {
+    position: relative;
+    margin-bottom: 4px;
+    padding: 6px 6px 6px 36px;
+    line-height: 28px;
+    color: #F0F0F0;
+}
+
+section.page-block#contact .info-item i {
+    position: absolute;
+    top: 12px;
+    left: 8px;
+    color: #606060;
+}
+
+section.page-block#contact .info-item i.icon-old-phone {
+    top: 11px;
 }
 
 section.page-block#artists h2 {
@@ -746,7 +773,7 @@ section.page-block#books a:hover {
     }
 
     section.page-block#contact .contact-info {
-        width: 100%;
+        width: 50%;
         margin-right: 280px;
         padding-top: 40px;
         font-size: 1.2em;
