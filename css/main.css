@@ -330,6 +330,15 @@ section.page-block hr {
     margin: 40px 30% 30px;
 }
 
+section.page-block .block-content.one-col {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section.page-block .block-content.one-col p {
+    padding: 0 1.4em;
+}
+
 section.page-block#gallery {
     background-color: #393939;
     color: #f1f1f1;
@@ -451,7 +460,8 @@ section.page-block#artists h2 {
 
 section.page-block#artists ul.artist-list {
     list-style: none;
-    margin: 0;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 0;
 }
 
@@ -849,6 +859,11 @@ section.page-block#books a:hover {
     }
     .gallery-grid li {
         width: 25%;
+    }
+}
+@media only screen and (min-width: 1600px) {
+    section#landing {
+        background-size: 100%;
     }
 }
 
