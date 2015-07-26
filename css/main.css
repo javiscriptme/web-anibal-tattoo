@@ -453,6 +453,17 @@ section.page-block#contact .info-item i.icon-old-phone {
     top: 11px;
 }
 
+section.page-block#contact .contact-map {
+    width: 60%;
+    height: 60%;
+    margin: 0 auto;
+}
+
+section.page-block#contact .contact-map svg {
+    width: 100%;
+    height: 100%;
+}
+
 section.page-block#artists h2 {
     margin: 0 0 52px 0;
     text-align: center;
@@ -793,8 +804,10 @@ section.page-block#books a:hover {
 
     section.page-block#contact .contact-map {
         position: absolute;
-        top: 0;
+        top: 5%;
         right: 0;
+        width: 50%;
+        height: 90%;
     }
 
     #gallery ul.artist-toggle {
