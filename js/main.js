@@ -32,6 +32,7 @@ var app = {
 		this.registerElements();
 		this.initialCalculations();
 		this.initGallery();
+		this.initLazyLoading();
 
 		var $artistToggle = this.els.$main.find('.artist-toggle');
 		$artistToggle.delegate('li', 'click', function () {
@@ -129,6 +130,16 @@ var app = {
 
 	initGallery: function () {
 		this.els.$galleryGrid.find('li.thumb').on('click', $.proxy(this.clickGalleryThumbnail, this));
+	},
+
+	initLazyLoading: function () {
+		$('.gallery-grid li:not(.thumb-more) img.lazy-load, .artist-list img.lazy-load').lazyload({
+			effect : 'fadeIn'
+		});
+		$('.gallery-grid .thumb-more img.lazy-load').lazyload({
+			effect : 'fadeIn',
+			event : 'galleryLoadMore'
+		});
 	},
 
 	scrollToAnchor: function (e) {
@@ -244,6 +255,7 @@ var app = {
 	},
 
 	unfoldGalleryGrid: function () {
+		this.els.$galleryGrid.find('.thumb-more img.lazy-load').trigger('galleryLoadMore');
 		this.els.$galleryGrid.toggleClass('show-all', true);
 
 		this.registerAllAnimatedElements();
