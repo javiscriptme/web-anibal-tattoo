@@ -42,6 +42,7 @@ var app = {
 				return (css.match (/(^|\s)selected-\S+/g) || []).join(' ');
 			});
 			_this.els.$galleryGrid.addClass($(this).data('artist'));
+			_this.els.$galleryGrid.find('.thumb img.lazy-load').trigger('galleryLoadMore');
 			_this.registerAllAnimatedElements();
 		});
 
@@ -136,7 +137,7 @@ var app = {
 		$('.gallery-grid li:not(.thumb-more) img.lazy-load, .artist-list img.lazy-load').lazyload({
 			effect : 'fadeIn'
 		});
-		$('.gallery-grid .thumb-more img.lazy-load').lazyload({
+		$('.gallery-grid .thumb img.lazy-load').lazyload({
 			effect : 'fadeIn',
 			event : 'galleryLoadMore'
 		});
@@ -255,7 +256,7 @@ var app = {
 	},
 
 	unfoldGalleryGrid: function () {
-		this.els.$galleryGrid.find('.thumb-more img.lazy-load').trigger('galleryLoadMore');
+		this.els.$galleryGrid.find('.thumb img.lazy-load').trigger('galleryLoadMore');
 		this.els.$galleryGrid.toggleClass('show-all', true);
 
 		this.registerAllAnimatedElements();
