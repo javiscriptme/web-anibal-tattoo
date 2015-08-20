@@ -25,6 +25,10 @@ textarea {
     color: #222;
 }
 
+button:focus {
+    outline:0;
+}
+
 html {
     font-size: 1em;
     line-height: 1.4;
@@ -632,7 +636,7 @@ section.page-block#books a:hover {
 
 .gallery-grid li.gallery-more {
     width: 100%;
-    margin: 32px auto 0;
+    margin: 40px auto 0;
     text-align: center;
 }
 
@@ -644,10 +648,17 @@ section.page-block#books a:hover {
     font-family: 'lato';
     width: 200px;
     background-color: #202020;
-    color: #FFF;
+    color: #D0D0D0;
     border: none;
+    border-bottom: 3px solid #101010;
+    border-radius: 4px;
     padding: 6px 32px;
     text-transform: uppercase;
+}
+
+.gallery-grid li.gallery-more button:active {
+    margin-top: 2px;
+    border-bottom: 1px solid #101010;
 }
 
 #gallery .sel-wrapper {
