@@ -52,8 +52,9 @@ var app = {
 	initialCalculations: function () {
 		this.documentHeight = $(document).outerHeight(true)
 		this.windowHeight   = $(window).outerHeight(true);
-		this.windowWidth   = $(window).outerWidth(true);
-		this.mobileWidth   = 960;
+		this.windowWidth    = $(window).outerWidth(true);
+		this.mobileWidth    = 960;
+		this.minFixHeight   = 780;
 	},
 
 	initialLoad: function () {
@@ -76,7 +77,9 @@ var app = {
 		}
 		this.setBlockTops();
 		this.registerAnimatedPaths();
-		this.registerAnimatedBlocks();
+		if ( this.windowHeight >= this.minFixHeight ) {
+			this.registerAnimatedBlocks();
+		}
 	},
 
 	firstLoadCallback: function () {
@@ -111,7 +114,7 @@ var app = {
 			wh    = this.windowHeight;
 
 		this.els.$landing.css('height', (wh > 800) ? 800 : wh + 'px'); // Landing image bg is 800px high
-		if (this.windowWidth > 720) {
+		if (this.windowWidth > 720 && wh >= this.minFixHeight ) {
 			$main.find('.page-block-fixed').each(function () {
 				$(this).css('height', wh * 1 + 'px');
 			});
@@ -205,7 +208,9 @@ var app = {
 
 		if ( this.windowWidth >= this.mobileWidth ) {
 			this.animatePaths(stwh);
-			this.fixfloatingBlocks(stwh);
+			if ( this.windowHeight >= this.minFixHeight ) {
+				this.fixfloatingBlocks(stwh);
+			}
 		}
 	},
 
