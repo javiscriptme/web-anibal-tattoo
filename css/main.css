@@ -369,6 +369,10 @@ section.page-block#about h3 {
     font-size: 1.3em;
 }
 
+section.page-block#about hr {
+    margin-top: 30px;
+}
+
 section.page-block#about .svg-flower {
     position: absolute;
     top: 160px;
@@ -383,8 +387,8 @@ section.page-block#about .block-content {
 }
 
 section.page-block#about p {
-    font-size: 1.2em;
-    line-height: 1.8em;
+    font-size: 1.1em;
+    line-height: 1.4em;
 }
 
 section.page-block#contact {
@@ -857,8 +861,8 @@ section.page-block#books a:hover {
 
     section.page-block#about .block-content {
         padding-top: 2%;
-        width: 60%;
-        margin-left: 40%;
+        width: 62%;
+        margin-left: 38%;
     }
 
     section.page-block#artists li.artist-info {
